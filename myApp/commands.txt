@@ -1,0 +1,4 @@
+myVenv/Scripts/activate
+cd myProject
+python manage.py runserver
+

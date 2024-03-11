@@ -1,0 +1,128 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family:'Cormorant Infant', sans-serif;;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.1s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: auto;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    padding: 2rem 9%;
+
+}
+a.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5%;
+    border: 1px solid #D1CBCB;
+    color: #D1CBCB;
+    cursor: pointer;
+    font-size: 1.7rem;
+    transition: color 0.01s;
+}
+
+a.btn:hover{
+    border-color: #AD9453;
+    color: #AD9453;
+}
+
+header{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    background: #E0E0DE ;
+    padding: .7rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .01rem 1rem rgba(0, 0, 0, 1);
+}
+header .logo{
+    font-size: 3.5rem;
+    color: #9B4F61;
+    font-weight: bolder;
+}
+header .bar{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: #cac0bd;
+    
+}
+header nav.bar a:not(:last-child) {
+    margin-right: 4.5rem;
+}
+header .bar a:hover{
+    color: #9B4F61;
+}
+header .icons a {
+    font-size: 2.5rem;
+    color: #373341;
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover {
+    color: #9B4F61;
+}
+
+header #toggler {
+    display: none;
+}
+
+header .fa-bars {
+    font-size: 2rem;
+    color: #373341;
+    border-radius: 3rem;
+    cursor: pointer;
+    border: 1rem solid rgba(0, 0, 0, 3);
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/5387155-flower-bouquet-flower-arrangement-floral-poppy-head-bloom-blooming-flowerpot-get-well-grey-deco-tin-free-stock-photos.jpg) no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.home .content{
+   max-width: 40rem;
+}
+
+.home .content h3{
+    font-size: 10rem;
+    color:#D1CBCB;
+    font-weight: normal;
+    font-family: 'Imperial Script', cursive;
+    text-shadow: 0 .0001rem 1rem rgba(0, 0, 0, 0.5);
+
+}
+.home .content h4{
+    font-size: 7rem;
+    color:#D1CBCB;
+    font-weight: lighter;
+    text-align: right;
+    font-family: 'Imperial Script', cursive;
+    text-shadow: 0 .0001rem 1rem rgba(0, 0, 0, 0.5);
+
+}
+
+.home .content p{
+    font-size: 1.4rem;
+    color: #D1CBCB;
+    padding: 0.5rem 0;
+    line-height: 2;
+}
