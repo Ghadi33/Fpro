@@ -1,0 +1,31 @@
+<header>
+     <a href="#" class="logo">Rosa</a>
+
+     <nav class="bar">
+    <a href="{% url 'index' %}">home</a>
+    <a href="#products">products</a>
+    <a href="/about/">about us</a>
+    <a href="#contact">contact</a>
+</nav>
+
+      <div class="icons">
+       <input type="text" placeholder="Search...">
+        <a href="#">
+             <i class="ion-ios-search"></i>
+          </a>
+         </div>
+        <!--<a href="cart">
+             <i class="ion-ios-cart"></i>
+          </a>
+        <a href="profile">
+             <i class="ion-ios-person"></i>
+          </a>-->
+         
+         <script>
+       
+        document.getElementById('search-icon').addEventListener('click', function() {
+            var searchForm = document.getElementById('search-form');
+            searchForm.style.display = (searchForm.style.display == 'none') ? 'block' : 'none';
+        });
+    </script>
+   </header>
