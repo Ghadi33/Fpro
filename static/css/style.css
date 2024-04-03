@@ -24,22 +24,22 @@ section{
     display: flex;
     align-items: center;
     padding: 7rem 0%;
-    background: url(../images/w02874-small.jpg);
+    background:  #ffffff;
     background-size:cover;
 }
 
-.section-title {
-    
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 30px;
+.aboutitle .section-title {
+     text-align: center;
     font-size: 50px;
     color: #ffffff;
-    background-color:#9b4f61;
-    border-radius: 10px;
-    box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.2);
 }
-
+.aboutitle{
+    display: flex;
+    align-items: center;
+    background: url(../images/5387155-flower-bouquet-flower-arrangement-floral-poppy-head-bloom-blooming-flowerpot-get-well-grey-deco-tin-free-stock-photos.jpg) no-repeat;
+    background-size:cover;
+    background-position: center;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -60,7 +60,7 @@ section{
     border-radius: 10px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(201, 201, 201, 0.755);
 }
 
 .icon {
@@ -233,18 +233,70 @@ footer .box-container .box a:hover{
 
 footer .box-container .box img{
    margin-top: 1rem;
+   width: 70%; 
+   height: 20%; 
+   
 }
 
-footer .box-container .credit{
-    justify-content: center;
-    align-items: center;   
+footer .box-container .credit{ 
     margin-top: 1.5rem;
     padding-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #333;
+    transform: translateX(200%); 
 }
+
 
 footer .box-container .credit span{
     color: #9B4F61;
     
+}
+
+section.product {
+    margin-top: 6rem;
+    margin-bottom: 30px;
+}
+
+section.flower-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.flower-product {
+    margin: 1.2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px; 
+    height: 350px; 
+    overflow: hidden;
+}
+
+.flower-product img {
+    width: 70%; 
+    height: 70%; 
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+.flower-product h2 {
+    margin: .4rem 0;
+    font-size: 1.9rem;
+}
+
+.flower-product p {
+    color: #555;
+    font-size: 1rem;
+}
+
+.flower-product span {
+    display: block;
+    font-weight: bold;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+    color: #9b4f61;
 }

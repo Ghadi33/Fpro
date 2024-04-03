@@ -6,3 +6,6 @@ def index(request):
 
 def about(request):
     return render(request, 'pages/about.html')
+
+def product(request):
+    return render(request, 'pages/product.html')
