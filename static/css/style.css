@@ -6,6 +6,7 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: 0.1s linear;
+    color: #dabcc3;
 }
 
 html{
@@ -23,27 +24,28 @@ section{
 .about {
     display: flex;
     align-items: center;
-    padding: 7rem 0%;
     background:  #ffffff;
-    background-size:cover;
 }
 
-.aboutitle .section-title {
-     text-align: center;
-    font-size: 50px;
+.about-title .section-title {
+    text-align: center;
+    font-size: 100px;
+    padding: 18rem 0%;
     color: #ffffff;
 }
-.aboutitle{
-    display: flex;
+.about-title{
+    display: block;
     align-items: center;
-    background: url(../images/5387155-flower-bouquet-flower-arrangement-floral-poppy-head-bloom-blooming-flowerpot-get-well-grey-deco-tin-free-stock-photos.jpg) no-repeat;
+    background: url(../images/aboutUs.jpg) no-repeat;
+    min-height: 600px;
     background-size:cover;
-    background-position: center;
+    padding: 3rem 0%;
+
 }
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    
 }
 
 .row {
@@ -103,35 +105,35 @@ header{
     top: 0; 
     left: 0;
     right: 0;
-    background: #E0E0DE ;
     padding: .7rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: 0 .01rem 1rem rgba(0, 0, 0, 1);
 }
 header .logo{
-    font-size: 3.5rem;
-    color: #9B4F61;
+    font-size: 4.5rem;
+    color: #ffe8ed;
     font-weight: bolder;
 }
 header .bar{
     font-size: 1.5rem;
     margin-right: 1rem;
-    color: #cac0bd;
+    color: #ffffff;
     
 }
 header nav.bar a:not(:last-child) {
     margin-right: 4.5rem;
 }
 header .bar a:hover{
-    color: #9B4F61;
+    color: #ffffff;
+}
+header .bar:hover{
+    color: #ffffff;
 }
 
-
 header .icons a:hover {
-    color: #9B4F61;
+    color: #ffffff;
 }
 
 header #toggler {
@@ -158,6 +160,27 @@ header .icons:hover input[type="text"] {
     width: 350px; 
     font-weight: 500;
     background: transparent;
+}
+header.transparent {
+    background: transparent;
+}
+
+.ion-ios-search {
+        background-color: #ffffff;
+}
+
+
+
+header.white {
+    background: #ffffff;
+}
+
+header.white nav.bar a {
+    color: #9b4f61; 
+}
+
+.logo.pink-logo {
+    color: #9b4f61; 
 }
 
 
@@ -203,7 +226,7 @@ footer .box-container{
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
-    background: #E0E0DE ;
+    background: #ffffff;
     padding: 1.4rem 4%;
     box-shadow: 0 .01rem 1rem rgba(0, 0, 0, 1);
     text-align: center;  
@@ -252,10 +275,7 @@ footer .box-container .credit span{
     
 }
 
-section.product {
-    margin-top: 6rem;
-    margin-bottom: 30px;
-}
+
 
 section.flower-products {
     display: flex;
@@ -268,7 +288,6 @@ section.flower-products {
     margin: 1.2rem;
     padding: 1rem;
     background-color: #f9f9f9;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 350px; 
@@ -280,12 +299,12 @@ section.flower-products {
     width: 70%; 
     height: 70%; 
     object-fit: cover; 
-    border-radius: 8px;
 }
 
 .flower-product h2 {
     margin: .4rem 0;
     font-size: 1.9rem;
+    color: #333;
 }
 
 .flower-product p {
@@ -298,5 +317,26 @@ section.flower-products {
     font-weight: bold;
     margin-top: 0.3rem;
     font-size: 1.2rem;
+    color: #9b4f61;
+}
+.product{
+    display: block;
+    align-items: center;
+    background: url(../images/product.jpg) no-repeat;
+    min-height: 600px;
+    background-size:cover;
+    padding: 3rem 0%;
+     margin-bottom: 30px;
+
+}
+
+.pro-title{
+    text-align: center;
+    font-size: 100px;
+    padding: 18rem 0%;
+    color: #ffffff;
+
+}
+.flower-products .icons{
     color: #9b4f61;
 }

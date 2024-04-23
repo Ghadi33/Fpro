@@ -8,18 +8,21 @@
     <a href="#contact">contact</a>
 </nav>
 
-      <div class="icons">
-       <input type="text" placeholder="Search...">
-        <a href="#">
-             <i class="ion-ios-search"></i>
-          </a>
-         </div>
+   <div class="icons">
+    <form action="{% url 'product_page' %}" method="GET">
+        <input type="text" name="q" placeholder="Search">
+        <button type="submit"><i class="ion-ios-search"></i></button>
+    </form>
+</div>
+
+
         <!--<a href="cart">
              <i class="ion-ios-cart"></i>
           </a>
         <a href="profile">
              <i class="ion-ios-person"></i>
           </a>-->
+         
          
          <script>
        
@@ -28,4 +31,41 @@
             searchForm.style.display = (searchForm.style.display == 'none') ? 'block' : 'none';
         });
     </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const logo = document.querySelector('.logo');
+
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            header.classList.remove('transparent');
+            header.classList.add('white');
+            logo.classList.add('pink-logo');
+        } else {
+            header.classList.remove('white');
+            header.classList.add('transparent');
+            logo.classList.remove('pink-logo');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+});
+
+</script>
+<script>
+    function search() {
+        var input, filter, cards, cardContainer, title, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cards = document.querySelectorAll(".flower-product");
+        for (i = 0; i < cards.length; i++) {
+            title = cards[i].querySelector("h2");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
    </header>
