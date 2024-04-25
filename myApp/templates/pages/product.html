@@ -1,6 +1,7 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 
+
 {% block content %}
 <section class="product" id="product">
     <h2 class="pro-title">Products</h2>
@@ -12,12 +13,10 @@
         {% if product.product_image %}
         <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
         {% else %}
-        <!-- Use a default image path if product does not have an image -->
         <img src="{% static 'product/default.jpg' %}" alt="{{ product.title }}">
         {% endif %}
-        <div class="icons">
-            <a href="#" class="ion-ios-cart">Add to Cart</a>
-            <a href="#" class="ion-ios-heart"></a>
+        <div class="buy">
+            <a href="#" class="ion-ios-cart"></a>
             <a href="#" class="ion-ios-share"></a>
         </div>
         <h2>{{ product.title }}</h2>

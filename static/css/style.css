@@ -104,8 +104,8 @@ header{
     position: fixed;
     top: 0; 
     left: 0;
-    right: 0;
-    padding: .7rem 9%;
+    right: 2;
+    padding: .8rem 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -115,11 +115,16 @@ header .logo{
     font-size: 4.5rem;
     color: #ffe8ed;
     font-weight: bolder;
+    
+    
 }
 header .bar{
     font-size: 1.5rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
+    margin-left: 4rem;
     color: #ffffff;
+    font-weight: bold;
+    margin-top: 1rem;
     
 }
 header nav.bar a:not(:last-child) {
@@ -132,14 +137,50 @@ header .bar:hover{
     color: #ffffff;
 }
 
-header .icons a:hover {
-    color: #ffffff;
-}
 
 header #toggler {
     display: none;
 }
-header .icons {
+
+.icon {
+    margin-top: 1rem;
+    display: inline-block; 
+}
+
+.icon a{
+    margin-right: 10px; 
+    height: 30px;
+    padding: 1px 3px;
+    margin-top: 1rem;
+}
+
+.icon i {
+    
+    font-size: 2rem; 
+    margin-left: 15px;
+}
+
+.icon a:hover i {
+    color: #ffffff; 
+}
+
+
+header .search input[type="text"] {
+    width: 200px; 
+    transition: width 0.8s ease; 
+    outline: none;
+    border: none;
+}
+
+header .search:hover input[type="text"] {
+    width: 210px; 
+    font-weight: 500;
+    background: transparent;
+}
+
+/* Apply styles to the search container */
+header .search {
+    margin-top: 1rem;
     height: 30px;
     display: flex;
     cursor: pointer;
@@ -147,19 +188,13 @@ header .icons {
     background: #fff;
     border-radius: 30px;
     align-items: center;
-  
+    margin-left: 30px;
+    border: 1px solid #dabcc3;
 }
-header .icons input[type="text"] {
-    width: 200px; 
-    transition: width 0.8s ease; 
-    outline: none;
-    border: none;
-}
-
-header .icons:hover input[type="text"] {
-    width: 350px; 
-    font-weight: 500;
-    background: transparent;
+header .search button[type="submit"] {
+    color: #dabcc3;
+    font-size: .5rem;
+    background-color: #fff;
 }
 header.transparent {
     background: transparent;
@@ -285,7 +320,7 @@ section.flower-products {
 }
 
 .flower-product {
-    margin: 1.2rem;
+    margin: 1rem;
     padding: 1rem;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -302,7 +337,7 @@ section.flower-products {
 }
 
 .flower-product h2 {
-    margin: .4rem 0;
+    margin: .1rem 0;
     font-size: 1.9rem;
     color: #333;
 }
@@ -310,12 +345,13 @@ section.flower-products {
 .flower-product p {
     color: #555;
     font-size: 1rem;
+
 }
 
 .flower-product span {
     display: block;
     font-weight: bold;
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
     font-size: 1.2rem;
     color: #9b4f61;
 }
@@ -326,7 +362,7 @@ section.flower-products {
     min-height: 600px;
     background-size:cover;
     padding: 3rem 0%;
-     margin-bottom: 30px;
+    margin-bottom: 30px;
 
 }
 
@@ -337,6 +373,183 @@ section.flower-products {
     color: #ffffff;
 
 }
-.flower-products .icons{
-    color: #9b4f61;
+.flower-products .flower-product .buy {
+    display: flex;
+    justify-content: flex-start; 
+    margin-top: 0.001px; 
+}
+.flower-products .flower-product .buy .ion-ios-cart{
+    color: #9b4f61 !important;
+    margin-right: 10px;
+    font-size: 1.5rem; 
+
+}
+.flower-products .flower-product .buy .ion-ios-share{
+    color: #9b4f61 !important;
+    font-size: 1.5rem; 
+}
+
+.contact{
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-iriser-1651053.jpg) no-repeat;
+    min-height: 600px;
+    background-size:cover;
+    padding: 3rem 0%;
+    margin-bottom: 30px;
+
+}
+.cont-title{
+    text-align: center;
+    font-size: 100px;
+    padding: 18rem 0%;
+    color: #ffffff;
+
+}
+
+header.white .icon .ion-ios-cart{
+    color: #9b4f61; 
+}
+header.white .icon .ion-ios-person{
+    color: #9b4f61; 
+}
+.join{
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-iriser-1408221.jpg) no-repeat;
+   
+    background-size:cover;
+    padding: 3rem 0%;
+
+}
+.join-title{
+    text-align: center;
+    font-size: 100px;
+    padding: 16rem 0%;
+    color: #ffffff;
+
+}
+.reg {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+.reg form {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.reg form label {
+    margin-bottom: 5px;
+    color: #9B4F61; 
+    font-size: medium;
+}
+.reg form input[type="text"],
+.reg form input[type="email"],
+.reg form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.reg form button.btn.btn-primary {
+    padding: 10px 20px;
+    background-color: #9B4F61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reg form button.btn.btn-primary:hover {
+    background-color: #dabcc3;
+}
+
+.reg .error-message {
+    color: #a50011;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.reg .success-message {
+    color: #28a745;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+ 
+.login-link {
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.log {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+.log form {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.log form label {
+    margin-bottom: 5px;
+    color: #9B4F61; 
+    font-size: medium;
+}
+.log form input[type="text"],
+.log form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.log form button[type="submit"]  {
+    padding: 10px 20px;
+    background-color: #9B4F61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.log form button.btn.btn-primary:hover {
+    background-color: #dabcc3;
+}
+.Log{
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-markus-winkler-1430818-2975171.jpg) no-repeat;
+    background-size:cover;
+    padding: 3rem 0%;
+
+}
+.Login{
+    text-align: center;
+    font-size: 100px;
+    padding: 13rem 0%;
+    color: #ffffff;
+
 }

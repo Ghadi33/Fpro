@@ -78,3 +78,12 @@ class ProductModelAdmin(admin.ModelAdmin):
 </section> 
 
 {% endblock content %}
+
+
+
+ {% csrf_token %}
+        {% for fm in form%}
+        {{ form.label_tag }}{{fm}}<small class="td">{{fm.errors|scripttags}}</small>
+        <br>
+        {%endfor%}
+        

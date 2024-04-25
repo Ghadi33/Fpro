@@ -19,12 +19,20 @@ from django.contrib import admin
 from django.urls import path, include
 from myApp import views
 from django.conf.urls.static import static 
+from myApp.views import register, cart,custom_login
+from django.contrib.auth import views as auth_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('about/', views.about, name="about"),
-    path('product/', views.product_page, name="product_page"),  
+    path('product/', views.product_page, name="product_page"),
+    path('contact/', views.contact, name="contact"),
+    path('cart/', views.cart, name='cart'),  
+    path('registration/', views.register, name='register'),
+    path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('login/', custom_login, name='login'),
 
 ]
 

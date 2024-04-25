@@ -5,27 +5,29 @@
     <a href="{% url 'index' %}">home</a>
     <a href="/product/">product</a>
     <a href="/about/">about us</a>
-    <a href="#contact">contact</a>
+    <a href="/contact/">contact</a>
+    <a href="/login/">login</a>
+    <a href="/registration/">registration</a>
 </nav>
 
-   <div class="icons">
-    <form action="{% url 'product_page' %}" method="GET">
+   <div class="search">
+     <form action="{% url 'product_page' %}" method="GET">
         <input type="text" name="q" placeholder="Search">
         <button type="submit"><i class="ion-ios-search"></i></button>
-    </form>
-</div>
+     </form>
+   </div>
 
-
-        <!--<a href="cart">
-             <i class="ion-ios-cart"></i>
-          </a>
+   <div class="icon">
+    <a href="cart/">
+        <i class="ion-ios-cart"></i>
+       </a>
         <a href="profile">
-             <i class="ion-ios-person"></i>
-          </a>-->
-         
-         
-         <script>
-       
+            <i class="ion-ios-person"></i>
+        </a>
+    </div>
+
+
+    <script>
         document.getElementById('search-icon').addEventListener('click', function() {
             var searchForm = document.getElementById('search-form');
             searchForm.style.display = (searchForm.style.display == 'none') ? 'block' : 'none';
@@ -35,6 +37,8 @@
   document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const logo = document.querySelector('.logo');
+    const cartIcon = document.querySelector('.ion-ios-cart');
+    const profileIcon = document.querySelector('.ion-ios-person');
 
     function handleScroll() {
         if (window.scrollY > 50) {
@@ -68,4 +72,5 @@
         }
     }
 </script>
+
    </header>
