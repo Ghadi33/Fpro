@@ -65,14 +65,30 @@ section{
     box-shadow: 0 0 20px rgba(201, 201, 201, 0.755);
 }
 
-.icon {
-    font-size: 48px;
-    color: #9b4f61;
-    margin-bottom: 20px;
+.about .container .row .col .icon .ion-ios-rose {
+    font-size: 49px;
+    color: #9b4f61 !important;
+}
+.about .container .row .col .icon .ion-ios-clock{
+    font-size: 49px;
+    color: #9b4f61 !important;
+}
+.about .container .row .col .icon .ion-ios-lightbulb{
+    font-size: 49px;
+    color: #9b4f61 !important;
+}
+.about .container .row .col .icon .ion-ios-color-wand{
+    font-size: 49px;
+    color: #9b4f61 !important;
+}
+.about .container .row .col .icon .ion-ios-email{
+    font-size: 49px;
+    color: #9b4f61 !important;
 }
 
+
 h3 {
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
     margin-bottom: 20px;
 }
@@ -104,8 +120,8 @@ header{
     position: fixed;
     top: 0; 
     left: 0;
-    right: 2;
-    padding: .8rem 8%;
+    right: 0;
+    padding: .9rem 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -150,14 +166,13 @@ header #toggler {
 .icon a{
     margin-right: 10px; 
     height: 30px;
-    padding: 1px 3px;
+    padding: 1px 9px;
     margin-top: 1rem;
 }
 
 .icon i {
-    
     font-size: 2rem; 
-    margin-left: 15px;
+    margin-left: 8px;
 }
 
 .icon a:hover i {
@@ -178,13 +193,13 @@ header .search:hover input[type="text"] {
     background: transparent;
 }
 
-/* Apply styles to the search container */
+
 header .search {
     margin-top: 1rem;
     height: 30px;
     display: flex;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 5px 15px;
     background: #fff;
     border-radius: 30px;
     align-items: center;

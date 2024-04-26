@@ -78,8 +78,7 @@ def custom_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Redirect to the appropriate page after login
-                return redirect('home')  # Adjust 'home' to the name of your desired destination
+                return redirect('home') 
     else:
         form = LoginForm()
     return render(request, 'pages/login.html', {'form': form})
