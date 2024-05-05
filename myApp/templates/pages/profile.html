@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="profile" id="profile">
+    <h2 class="profile-title">My Profile</h2>
+    <div class="prof-container">
+        <div class="prof-sidebar">
+            <ul>
+                <li><a href="#my-info">My Info</a></li>
+                <li><a href="#my-orders">My Orders</a></li>
+            </ul>
+        </div>
+        <div class="prof-content">
+            <div id="my-info">
+                <div class="prof">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+            <div id="my-orders" style="display: none;">
+                <h3>My Orders</h3>
+                <p>your order history.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

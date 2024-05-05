@@ -3,20 +3,76 @@
 
 {% block content %}
 <section class="cart" id="cart">
-    <h2 class="cart-title">Shopping Cart</h2>
+    <div class="cart-container">
+        <h2 class="cart-title">Shopping Cart</h2>
 
-    <div class="cart-items">
-        {% if cart_items %}
-            {% for item in cart_items %}
-                <div class="cart-item">
-                    <h3>{{ item.product.title }}</h3>
-                    <p>Quantity: {{ item.quantity }}</p>
-                    <p>Price: ${{ item.product.price }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Your cart is empty.</p>
-        {% endif %}
+        <div class="cart-items">
+            {% if cart_items %}
+                {% for item in cart_items %}
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h3>{{ item.product_ref.title }}</h3>
+                            <p class="quantity">Quantity: {{ item.quantity }}</p>
+                            <p class="price">Price:  ${{ item.total_price }}</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="remove-item-btn" data-item-id="{{ item.id }}">Remove</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="empty-cart-message">Your cart is empty.</p>
+            {% endif %}
+        </div>
+       <a href="/order/" class="order">Order</a>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var removeButtons = document.querySelectorAll('.remove-item-btn');
+    removeButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log("Remove button clicked");
+            var itemId = this.getAttribute('data-item-id');
+            var confirmation = confirm("Are you sure you want to remove this item from the cart?");
+            console.log("Confirmation:", confirmation);
+            if (confirmation) {
+                removeCartItem(itemId);
+            }
+        });
+    });
+
+    function removeCartItem(itemId) {
+        console.log("Removing item:", itemId);
+        $.ajax({
+            type: 'POST',
+            url: '/remove-from-cart/' + itemId + '/',  
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log("Success:", data);
+                var itemToRemove = document.querySelector('.cart-item[data-item-id="' + itemId + '"]');
+                if (itemToRemove) {
+                   
+                    itemToRemove.style.transition = "opacity 0.5s ease";
+                    itemToRemove.style.opacity = 0;
+                    setTimeout(function() {
+                        itemToRemove.remove();
+                    }, 500); 
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.error('Error removing item from cart:', errorThrown);
+                alert("An error occurred while removing the item from the cart. Please try again later.");
+            }
+        });
+    }
+});
+
+</script>
+
 {% endblock content %}

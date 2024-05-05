@@ -467,6 +467,7 @@ header.white .icon .ion-ios-person{
 .reg form input[type="text"],
 .reg form input[type="email"],
 .reg form input[type="password"] {
+    color:#333;
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -556,7 +557,7 @@ header.white .icon .ion-ios-person{
 .Log{
     display: block;
     align-items: center;
-    background: url(../images/pexels-markus-winkler-1430818-2975171.jpg) no-repeat;
+    background: url(../images/pexels-sohi-807598.jpg) no-repeat;
     background-size:cover;
     padding: 3rem 0%;
 
@@ -567,4 +568,213 @@ header.white .icon .ion-ios-person{
     padding: 13rem 0%;
     color: #ffffff;
 
+}
+
+.profile{
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-lexie-blessing-327098-11944446.jpg) no-repeat;
+    background-size:cover;
+    padding: 3rem 0%;
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 100px;
+    padding: 13rem 0%;
+    color: #ffffff;
+
+}
+.prof-container {
+    display: flex;
+    max-width: 1200px;
+    height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.prof-sidebar {
+    border-radius: 5px;
+    flex: 0 0 200px;
+    background-color:#9B4F61;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.prof-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.prof-sidebar li a {
+    color: #fff !important;
+}
+
+.prof-sidebar li {
+    margin-bottom: 25px;
+    font-size: 20px; 
+}
+
+.prof-content {
+    border-radius: 5px;
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+
+.prof form {
+    margin-top: 20px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 150px 1fr;
+    
+}
+
+.prof form label {
+    text-align: right; 
+    padding-right: 10px; 
+    color: #9B4F61;
+    font-size: 20px;
+}
+
+.prof form input[type="text"],
+.prof form input[type="password"],
+.prof form textarea {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #333;
+    width: 100%;
+}
+
+.prof button {
+    background-color: #9B4F61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.prof button:hover {
+    background-color: #dabcc3;
+}
+
+   
+.cart {
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-fotios-photos-1083822.jpg) no-repeat;
+    background-size:cover;
+    padding: 3rem 0%;
+}
+
+.cart-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    margin-top: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.cart-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.cart-item {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cart-item-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cart-item-info p {
+    margin-bottom: 5px;
+}
+
+.cart-item-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-item-actions button {
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #9B4F61;
+    background-color: #fff;
+    cursor: pointer;
+
+}
+
+.empty-cart-message {
+    font-size: 18px;
+    color: #666;
+}
+.quantity-input {
+    margin-left: 5px;
+    color: #333; 
+}
+.cart-container .order {
+    display: flex; 
+    margin: 0 auto;
+    width: 70px;
+    background-color: #9B4F61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+.order-sec {
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-fotios-photos-1083822.jpg) no-repeat;
+    background-size:cover;
+    padding: 3rem 0%;
+    justify-content: center;
+}
+.order-sec .done{
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    margin-top: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.order-sec .done img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
 }

@@ -1,29 +1,27 @@
-from django.shortcuts import render, redirect,get_object_or_404
-from.models import Product ,CartItem
+from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
-from .forms import CustomerForm,LoginForm,AuthenticationForm
-from django.views.generic import View
-from django.contrib.auth import authenticate, login
-from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
+from .models import Product, CartItem, UserProfile
+from .forms import CustomerForm, ProfileForm
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.urls import reverse_lazy
+from django.views.generic import View
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+
 def index(request):
     return render(request, 'pages/index.html')
+
+def order(request):
+    return render(request, 'pages/order.html')
 
 def about(request):
     return render(request, 'pages/about.html')
 
-def product(request):
-    return render(request, 'pages/product.html')
-
 def contact(request):
     return render(request, 'pages/contact.html')
-
-def product_page(request):
-    products = Product.objects.all()
-    return render(request, 'pages/product.html', {'products': products})
-
 
 def product_page(request):
     query = request.GET.get('q')
@@ -33,52 +31,72 @@ def product_page(request):
         products = Product.objects.all()
     return render(request, 'pages/product.html', {'products': products})
 
+
 def register(request):
     if request.method == 'POST':
         form = CustomerForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('success')  
+            user = form.save(commit=False)
+            user.email = form.cleaned_data['email']
+            user.save()
+            messages.success(request, 'Registration successful! Please log in.')
+            return redirect('login')  
     else:
         form = CustomerForm()
     return render(request, 'pages/registration.html', {'form': form})
-    
-def cart(request):
-    if request.user.is_authenticated:
-        cart_items = CartItem.objects.filter(user=request.user)
-    else:
-        cart_items = []
 
-    context = {
-        'cart_items': cart_items
-    }
+
+def custom_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                form.add_error(None, 'Invalid username or password. Please try again.')
+    else:
+        form = AuthenticationForm(request)
+    return render(request, 'pages/login.html', {'form': form})
+
+@login_required
+def profile(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'pages/profile.html', {'form': form, 'profile': profile})
+
+@login_required
+def cart(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    for item in cart_items:
+        item.total_price = item.product_ref.selling_price * item.quantity
     return render(request, 'pages/cart.html', {'cart_items': cart_items})
 
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
-       
-        cart_item, created = CartItem.objects.get_or_create(user=request.user, product_id=product_id)  
+        cart_item, created = CartItem.objects.get_or_create(user=request.user, product_ref=product) 
         if not created:
             cart_item.quantity += 1
             cart_item.save()
-        
         return redirect('product_page')
     else:
         return redirect('login')
-    
 
-@login_required
-def custom_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('home') 
-    else:
-        form = LoginForm()
-    return render(request, 'pages/login.html', {'form': form})
+
+def remove_from_cart(request, item_id):
+    response_data = {'message': 'Item removed from cart successfully'}
+    response = JsonResponse(response_data)
+    response['Cache-Control'] = 'max-age=3600'
+    
+    return response

@@ -1,7 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 
-
 {% block content %}
 <section class="product" id="product">
     <h2 class="pro-title">Products</h2>
@@ -16,7 +15,7 @@
         <img src="{% static 'product/default.jpg' %}" alt="{{ product.title }}">
         {% endif %}
         <div class="buy">
-            <a href="#" class="ion-ios-cart"></a>
+            <a href="#" class="ion-ios-cart add-to-cart-btn" data-product-id="{{ product.id }}"></a>
             <a href="#" class="ion-ios-share"></a>
         </div>
         <h2>{{ product.title }}</h2>
@@ -25,4 +24,48 @@
     </div>
     {% endfor %}
 </section>
+
+<script>
+$(document).ready(function() {
+    $('.add-to-cart-btn').click(function(event) {
+        event.preventDefault(); 
+        
+        var productId = $(this).data('product-id');
+        var csrftoken = getCookie('csrftoken');
+        
+        $.ajax({
+            type: 'POST',
+            url: '/add-to-cart/' + productId + '/',
+            data: {
+                'csrfmiddlewaretoken': csrftoken
+            },
+            dataType: 'json',
+            success: function(data) {
+                alert('Product added to cart!');
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.error('Error adding product to cart:', errorThrown);
+            }
+        });
+    });
+});
+
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+</script>
+
 {% endblock content %}

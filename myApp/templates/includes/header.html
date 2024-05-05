@@ -13,26 +13,26 @@
    <div class="search">
      <form action="{% url 'product_page' %}" method="GET">
         <input type="text" name="q" placeholder="Search">
-        <button type="submit"><i class="ion-ios-search"></i></button>
+        <button type="submit" title="Search"><i class="ion-ios-search"></i></button>
      </form>
    </div>
 
    <div class="icon">
-    <a href="cart/">
+    <a href="{% url 'cart' %}">
         <i class="ion-ios-cart"></i>
        </a>
-        <a href="profile">
+        <a href="{% url 'profile' %}">
             <i class="ion-ios-person"></i>
         </a>
     </div>
 
 
     <script>
-        document.getElementById('search-icon').addEventListener('click', function() {
-            var searchForm = document.getElementById('search-form');
-            searchForm.style.display = (searchForm.style.display == 'none') ? 'block' : 'none';
-        });
-    </script>
+    document.querySelector('.search button').addEventListener('click', function() {
+        var searchForm = document.querySelector('.search form');
+        searchForm.style.display = (searchForm.style.display == 'none') ? 'block' : 'none';
+    });
+</script>
     <script>
   document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');

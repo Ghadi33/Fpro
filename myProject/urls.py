@@ -33,7 +33,9 @@ urlpatterns = [
     path('registration/', views.register, name='register'),
     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('login/', custom_login, name='login'),
-
+    path('profile/', views.profile, name='profile'),
+    path('order/', views.order, name='order'),
+    path('remove-from-cart/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
 ]
 
 if settings.DEBUG:

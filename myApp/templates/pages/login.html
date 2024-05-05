@@ -10,11 +10,10 @@
             {{ form.as_p }}
             <button type="submit">Login</button>
         </form>
-        {% if form.errors %}
-            <p class="error-message">Invalid username or password. Please try again.</p>
+        {% if form.non_field_errors %}
+            <p class="error-message">{{ form.non_field_errors }}</p>
         {% endif %}
         <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
-        </div>
     </div>
-    </section>
+</section>
 {% endblock content %}

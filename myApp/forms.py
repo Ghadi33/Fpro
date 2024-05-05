@@ -1,6 +1,15 @@
+from .models import UserProfile
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,UsernameField,PasswordChangeForm
 from django.contrib.auth.models import User
+
+CITY_CHOICES = [
+    ('Mekkah', 'Mekkah'),
+    ('Buraydah', 'Buraydah'),
+    ('Riyadh', 'Riyadh'),
+    ('Jeddah', 'Jeddah'),
+    ('Dammam', 'Dammam'),
+]
 
 class CustomerForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True, 'class': 'form-control'}))
@@ -19,3 +28,11 @@ class LoginForm(AuthenticationForm):
 
 class MyPasswordResetForm(PasswordChangeForm):
     pass
+  
+class ProfileForm(forms.ModelForm):
+    city = forms.ChoiceField(choices=CITY_CHOICES)
+    class Meta:
+        model = UserProfile
+        fields = ['city', 'mobile', 'zipcode']
+    
+

@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="order-sec" id="order-sec">
+    <div class="done">
+        <h2 class="cart-title">Your order is waiting for you!</h2>
+        <img src="{% static 'images/orders.png' %}" alt="Order Image">
+    </div>
+</section>
+{% endblock content %}
