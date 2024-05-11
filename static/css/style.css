@@ -778,3 +778,67 @@ header.white .icon .ion-ios-person{
     display: block; 
     margin: 0 auto; 
 }
+
+.contact {
+    display: block;
+    align-items: center;
+    background: url(../images/pexels-iriser-1651053.jpg) no-repeat;
+    background-size: cover;
+    padding: 1rem 0%;
+}
+
+.cont-title {
+    text-align: center;
+    font-size: 100px;
+    padding: 18rem 0%;
+    color: #ffffff;
+}
+
+.contact .cont {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    margin-top: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.cont form input[type="text"],
+.cont form input[type="email"],
+.cont form input[type="password"]  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.cont form {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.cont form label {
+    margin-bottom: 5px;
+    color: #9B4F61; 
+    font-size: medium;
+}
+
+.cont form input[type="submit"]  {
+    padding: 10px 20px;
+    background-color: #9B4F61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cont form button.btn.btn-primary:hover {
+    background-color: #dabcc3;
+}

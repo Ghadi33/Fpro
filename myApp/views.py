@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
-from .models import Product, CartItem, UserProfile
+from .models import Product, CartItem, UserProfile, Contact
 from .forms import CustomerForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
@@ -9,7 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse_lazy
 from django.views.generic import View
 from django.contrib.auth.models import User
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 def index(request):
     return render(request, 'pages/index.html')
@@ -21,6 +21,18 @@ def about(request):
     return render(request, 'pages/about.html')
 
 def contact(request):
+    if request.method == "POST":
+        contact=Contact()
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        mobile=request.POST.get('mobile')
+        subject=request.POST.get('subject')
+        contact.name=name
+        contact.email=email
+        contact.mobile=mobile
+        contact.subject=subject
+        contact.save()
+        return HttpResponse("<h1> Thanks for contacting us </h1>")
     return render(request, 'pages/contact.html')
 
 def product_page(request):

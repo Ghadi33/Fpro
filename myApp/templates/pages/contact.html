@@ -4,14 +4,24 @@
 {% block content %}
 <section class="contact" id="contact">
     <h2 class="cont-title">Contact Us</h2>
+    <div class="cont">
+        <form method="post">
+            {% csrf_token %}
+            <label for="fname">Name</label>
+            <input name='name' type="text" id="fname" class="form-control" placeholder="your name.." required>
+
+            <label for="femail">Email</label>
+            <input name='email' type="email"  id="femail" class="form-control" placeholder="your email.." aria-describedby="emailHelp" required>
+
+            <label for="fmobile">Mobile Number</label>
+            <input name='mobile'  type="text" id="fmobile" class="form-control" placeholder="your mobile number.." required>
+
+            <label for="subject">Subject</label>
+            <textarea name='subject' id="subject" class="form-control" placeholder="write here.." style="height:200px" required></textarea>
+
+            <input type="submit" class="cont-btn" value="submit">
+        </form>
+    </div>
 </section>
 
-<section class="contactus" id="contactus">
-  <div class="column">
-    <p class=fs4>Address: </p>
-    <p class=fs4>Contact: </p>
-    <p class=fs4>Email: </p>
-  </div>
-
-</section>
 {% endblock content %}

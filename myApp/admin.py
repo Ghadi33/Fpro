@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product
+from .models import Product, Contact
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
@@ -9,3 +9,5 @@ class ProductModelAdmin(admin.ModelAdmin):
         return obj.product_image.url if obj.product_image else None
 
     display_product_image.short_description = 'Product Image'
+
+admin.site.register(Contact)
