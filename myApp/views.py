@@ -109,6 +109,7 @@ def add_to_cart(request, product_id):
 def remove_from_cart(request, item_id):
     if request.method == 'POST':
         cart_item = get_object_or_404(CartItem, pk=item_id, user=request.user)
+        messages.warning(request, 'Are you sure you want to remove this item from your cart?')
         cart_item.delete()
         return redirect('/cart')  
     else:
