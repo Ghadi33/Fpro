@@ -16,7 +16,10 @@
                             <p class="price">Price:  ${{ item.total_price }}</p>
                         </div>
                         <div class="cart-item-actions">
-                            <button class="remove-item-btn" data-item-id="{{ item.id }}">Remove</button>
+                            <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Remove</button>
+                            </form>
                         </div>
                     </div>
                 {% endfor %}
@@ -27,52 +30,5 @@
        <a href="/order/" class="order">Order</a>
     </div>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    var removeButtons = document.querySelectorAll('.remove-item-btn');
-    removeButtons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            console.log("Remove button clicked");
-            var itemId = this.getAttribute('data-item-id');
-            var confirmation = confirm("Are you sure you want to remove this item from the cart?");
-            console.log("Confirmation:", confirmation);
-            if (confirmation) {
-                removeCartItem(itemId);
-            }
-        });
-    });
-
-    function removeCartItem(itemId) {
-        console.log("Removing item:", itemId);
-        $.ajax({
-            type: 'POST',
-            url: '/remove-from-cart/' + itemId + '/',  
-            data: {
-                'csrfmiddlewaretoken': '{{ csrf_token }}'
-            },
-            dataType: 'json',
-            success: function(data) {
-                console.log("Success:", data);
-                var itemToRemove = document.querySelector('.cart-item[data-item-id="' + itemId + '"]');
-                if (itemToRemove) {
-                   
-                    itemToRemove.style.transition = "opacity 0.5s ease";
-                    itemToRemove.style.opacity = 0;
-                    setTimeout(function() {
-                        itemToRemove.remove();
-                    }, 500); 
-                }
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                console.error('Error removing item from cart:', errorThrown);
-                alert("An error occurred while removing the item from the cart. Please try again later.");
-            }
-        });
-    }
-});
-
-</script>
 
 {% endblock content %}

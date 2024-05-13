@@ -9,7 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse_lazy
 from django.views.generic import View
 from django.contrib.auth.models import User
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseNotAllowed
 
 def index(request):
     return render(request, 'pages/index.html')
@@ -107,8 +107,9 @@ def add_to_cart(request, product_id):
 
 
 def remove_from_cart(request, item_id):
-    response_data = {'message': 'Item removed from cart successfully'}
-    response = JsonResponse(response_data)
-    response['Cache-Control'] = 'max-age=3600'
-    
-    return response
+    if request.method == 'POST':
+        cart_item = get_object_or_404(CartItem, pk=item_id, user=request.user)
+        cart_item.delete()
+        return redirect('/cart')  
+    else:
+        return HttpResponseNotAllowed(['POST'])
